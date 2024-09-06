@@ -4,7 +4,8 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
         "classpath:${env}.properties",
-        "classpath:android.properties"
+        "classpath:pixel3.properties",
+        "classpath:iphone14.properties"
 })
 
 public interface BrowserstackConfig extends Config {

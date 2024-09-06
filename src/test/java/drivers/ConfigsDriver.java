@@ -5,8 +5,8 @@ import config.BrowserstackConfig;
 import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigsDriver {
-    private static final AuthConfig authConfig = ConfigFactory.create(AuthConfig.class);
-    private static final BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class);
+    private static final AuthConfig authConfig = ConfigFactory.create(AuthConfig.class, System.getProperties());
+    private static final BrowserstackConfig browserstackConfig = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
     public static AuthConfig getAuthConfig() {
         return authConfig;
