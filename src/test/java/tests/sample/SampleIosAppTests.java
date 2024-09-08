@@ -1,11 +1,12 @@
-package tests;
+package tests.sample;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.SampleIosAppPage;
+import tests.TestBase;
 
-public class SampleIosAppTests extends TestBase{
+public class SampleIosAppTests extends TestBase {
 
     @Test
     @Tag("ios")

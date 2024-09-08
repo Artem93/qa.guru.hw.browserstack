@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.accessibilityId;
@@ -14,8 +14,8 @@ import static io.appium.java_client.AppiumBy.id;
 public class WikiSearchPage {
 
     private static final SelenideElement searchTextView = $(accessibilityId("Search Wikipedia"));
-    private static final SelenideElement searchInput =  $(id("org.wikipedia.alpha:id/search_src_text"));
-    private static final SelenideElement errorTextView =  $(id("view_wiki_error_text"));
+    private static final SelenideElement searchInput = $(id("org.wikipedia.alpha:id/search_src_text"));
+    private static final SelenideElement pageView = $(id("org.wikipedia.alpha:id/page_contents_container"));
     private static final ElementsCollection listOfResults = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
 
     @Step("Клик по фейк кнопке поиска")
@@ -42,9 +42,9 @@ public class WikiSearchPage {
         return this;
     }
 
-    @Step("Проверка отображения ошибки")
-    public WikiSearchPage checkErrorOccurred() {
-        errorTextView.shouldHave(text("An error occurred"));
+    @Step("Проверка загрузки страницы результата")
+    public WikiSearchPage checkTextOnPage() {
+        pageView.shouldBe(visible);
         return this;
     }
 }
